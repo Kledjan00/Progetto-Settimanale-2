@@ -1,0 +1,317 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color: #111;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Scrivi qui sotto i tuoi stili */
+
+/* -------- HEADER -------- */
+header {
+  background-color: #131921;
+  color: white;
+  padding: 15px 25px;
+  overflow: hidden;
+  text-align: left;
+  line-height: 35px;
+  position: sticky; /* resta in alto quando scorri, preso dal prof */
+  top: 0;
+  z-index: 10; /* comando che serve ad evitare che le schede vadano sopra la barra di riscerca  */
+}
+
+.logo {
+  float: left;
+  width: 100px;
+  margin-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #FF9900;
+  text-align: left;
+}
+
+.ricerca {
+  float: left;
+  width: 60%;
+  font-size: 0;
+  line-height: normal;
+  text-align: left;
+}
+
+.ricerca input {
+  width: calc(100% - 80px); /* 80px è la largehzza del bottone cerca */
+  height: 35px;
+  padding: 0 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px 0 0 4px; /* sul latro desto del cerca, niente bordo*/
+  vertical-align: top;
+}
+
+.ricerca button {
+  width: 80px;
+  height: 35px;
+  background-color: #FEBD69;
+  color: #111;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 0 4px 4px 0;
+  vertical-align: top;
+}
+
+.link-header {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 12px;
+  color: white;
+  vertical-align: top;
+}
+
+.link-header:hover {
+  text-decoration: underline;
+}
+
+.carrello {
+  display: inline-block;
+  margin-left: 20px;
+  height: 35px;
+  padding: 0 15px;
+  background-color: #232F3E;
+  color: white;
+  font-size: 12px;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+.carrello:hover {
+  text-decoration: underline;
+}
+
+/* ------ HERO ------ */
+.hero {
+  width: 100%;
+  background-color: #303F51;
+  color: white;
+  text-align: center;
+  padding: 80px 25px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 15px;
+}
+
+/* ------- MAIN ------- */
+main {
+  background-color: #f7f7f7;
+  padding-bottom: 60px;
+}
+
+/* Ho dato il padding alle sezioni, cosi l'hero resta a larghezza 100% */
+.categorie,
+.prodotti {
+  padding: 0 25px;
+}
+
+main h2 {
+  font-size: 20px;
+  padding-top: 50px;
+  margin-bottom: 20px;
+}
+
+.schema {
+  font-size: 0;
+  margin: 0 -10px -20px -10px;
+}
+
+/*----- 4card per riga-----*/
+.schema .card-categoria,
+.schema .card-prodotto {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(25% - 20px); /*ogni card occupa 25% ma se non conto -20px dei lati tra uno e l'altro va a capo*/
+  margin: 0 10px 20px 10px; /*lato margin 20 px totale tra uno e l'altro*/
+  font-size: 15px;
+}
+
+/* -------- CATEGORIE -------- */
+.card-categoria {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s; /*Serve a rallentare lo sbalzo che avviene quando passo con il mouse*/
+}
+
+.card-categoria:hover {
+  transform: translateY(-2px);   /* si alza di 2px sull'asse y  */
+}
+
+.img-categoria {
+  height: 195px;
+  line-height: 195px;
+  text-align: center;
+  color: #EEEEEE;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.elettronica {
+  background-color: #232F3E;
+}
+
+.libri {
+  background-color: #C45500;
+}
+
+.abbigliamento {
+  background-color: #146EB4;
+}
+
+.casa {
+  background-color: #067D62;
+}
+
+.info-categoria {
+  padding: 14px;
+}
+
+.info-categoria h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.info-categoria a {
+  font-size: 12px;
+  color: #007185;
+}
+
+.info-categoria a:hover {
+  text-decoration: underline;
+}
+
+/* -------- PRODOTTI -------- */
+.card-prodotto {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.img-prodotto {
+  height: 195px;
+  background-color: #EEEEEE;
+  color: #333;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.img-prodotto::before {
+  content: ""; /* trucco per centrare la scritta in verticale*/
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.card-prodotto h3 {
+  font-size: 14px;
+  font-weight: normal;
+  min-height: 42px;
+}
+
+.valutazione {
+  font-size: 12px;
+  color: #007185;
+  margin-bottom: 4px;
+}
+
+.stelle {
+  color: #FF9900;
+}
+
+.prezzo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #B12704;
+  margin-bottom: 12px;
+}
+
+.aggiungi {
+  display: block;
+  width: 100%;
+  background-color: #FFD814;
+  color: #111;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.aggiungi:hover {
+  background-color: #F7CA00;
+}
+
+/* -------- FOOTER -------- */
+footer {
+  background-color: #232F3E;
+  color: #EEEEEE;
+  padding: 50px 25px 60px 25px;
+  font-size: 0;
+}
+
+.colonna {
+  display: inline-block;
+  vertical-align: top;
+  width: calc((100% - 40px) / 3); /*stessa regola nella 4card per riga*/
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+.colonna:last-child {
+  margin-right: 0;
+}
+
+footer h4 {
+  font-size: 15px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+footer a {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
