@@ -3,11 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>title</title>
-    <script src="script.js"></script>
+  <title>Tutti i prodotti</title>
+  <link rel="stylesheet" href="stylejava.css">
 </head>
 <body>
 
+  <header>
+    <div class="logo">amazon</div>
 
+    <div class="ricerca">
+      <input type="text" placeholder="Cerca prodotti...">
+      <button>Cerca</button>
+    </div>
+
+    <a href="#" class="link-header">Account</a>
+    <a href="#" class="link-header">Ordini</a>
+    <a href="#" class="carrello">Carrello (0)</a>
+  </header>
+
+  <section class="hero">
+    <h1>Tutti i prodotti</h1>
+  </section>
+
+  <main>
+    <!-- la tabella la crea il JavaScript -->
+    <div id="tabella"></div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

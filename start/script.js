@@ -59,17 +59,17 @@ console.log(`${prodotti[7].nome}: ${formattaPrezzo(prodotti[4].prezzo)}`);
 */
 
 function stelline(rating) {
-  let risultato = "";
+   let risultato = "";
 
-  for (let i = 1; i <= 5; i++) {
-    if (i <= rating) {
-      risultato = risultato + "★";
-    } else {
-      risultato = risultato + "☆";
-    }
-  }
+   for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+         risultato = risultato + "★";
+      } else {
+         risultato = risultato + "☆";
+      }
+   }
 
-  return risultato;
+   return risultato;
 }
 
 console.log(`${prodotti[0].nome}: rating ${prodotti[1].rating} → "${stelline(prodotti[0].rating)}"`);
@@ -80,15 +80,15 @@ console.log(`${prodotti[3].nome}: rating ${prodotti[8].rating} → "${stelline(p
 */
 
 function filtraPerCategoria(categoria) {
-  const risultato = [];
+   const risultato = [];
 
-  for (let i = 0; i < prodotti.length; i++) {
-    if (prodotti[i].categoria === categoria) {
-      risultato.push(prodotti[i]);
-    }
-  }
+   for (let i = 0; i < prodotti.length; i++) {
+      if (prodotti[i].categoria === categoria) {
+         risultato.push(prodotti[i]);
+      }
+   }
 
-  return risultato;
+   return risultato;
 }
 
 // test
@@ -101,15 +101,15 @@ console.table(filtraPerCategoria("Libri"));
 */
 
 function filtraDisponibiliAlti() {
-  const risultato = [];
+   const risultato = [];
 
-  for (let i = 0; i < prodotti.length; i++) {
-    if (prodotti[i].disponibile === true && prodotti[i].rating >= 3) {
-      risultato.push(prodotti[i]);
-    }
-  }
+   for (let i = 0; i < prodotti.length; i++) {
+      if (prodotti[i].disponibile === true && prodotti[i].rating >= 3) {
+         risultato.push(prodotti[i]);
+      }
+   }
 
-  return risultato;
+   return risultato;
 }
 
 // test
@@ -123,7 +123,55 @@ console.table(filtraDisponibiliAlti());
    Niente HTML hard-coded per i prodotti: tutto generato dal JavaScript.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+/*--- Prendo dal DOM il contenitore vuoto dove metto la tabella ---*/
+const tabella = document.getElementById("tabella");
+
+function renderProdotti(lista) {
+   /*--- parto da una stringa con l'inizio della tabella e la riga dei titoli ---*/
+   let html = `
+      <table>
+         <thead>
+            <tr>
+               <th>Nome</th>
+               <th>Categoria</th>
+               <th>Prezzo</th>
+               <th>Rating</th>
+            </tr>
+         </thead>
+         <tbody>
+   `;
+
+   /*---- per ogni prodotto aggiungo una riga alla stringa ---*/
+   for (let i = 0; i < lista.length; i++) {
+      html = html + `
+            <tr>
+               <td>${lista[i].nome}</td>
+               <td>${lista[i].categoria}</td>
+               <td>${formattaPrezzo(lista[i].prezzo)}</td>
+               <td class="stelle">${stelline(lista[i].rating)}</td>
+            </tr>
+      `;
+   }
+
+   /*--- chiudo il body della tabella e aggiungo la riga finale con il totale ---*/
+  
+   html = html + `
+         </tbody>
+         <tfoot>
+            <tr>
+               <td colspan="4">Totale prodotti = ${lista.length}</td>
+            </tr>
+         </tfoot>
+      </table>
+   `;
+
+   /*--- metto tutta la tabella nel contenitore in una volta sola --*/
+   tabella.innerHTML = html;
+}
+
+/*--- senza questa riga non compare niente ---*/
+renderProdotti(prodotti);
+
 
 
 /* Extra VERSIONE AVANZATA — Aggiungi al carrello
