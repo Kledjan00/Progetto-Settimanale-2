@@ -40,7 +40,7 @@ header {
   line-height: 35px;
   position: sticky; /* resta in alto quando scorri, preso dal prof */
   top: 0;
-  z-index: 10; /* comando che serve ad evitare che le schede vadano sopra la barra di riscerca  */
+  z-index: 10; /* comando che serve ad evitare che le schede vadano sopra la barra di riscerca, alla fine suggerito dal prof  */
 }
 
 .logo {
@@ -167,12 +167,12 @@ main h2 {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s; /*Serve a rallentare lo sbalzo che avviene quando passo con il mouse*/
+  transition: transform 0.2s; /*Serve a rallentare lo sbalzo che avviene quando passo con il mouse, citato dal prof nel benchmark*/
 }
 
 .card-categoria:hover {
-  transform: translateY(-2px);   /* si alza di 2px sull'asse y  */
-}
+  transform: translateY(-2px);   /* si alza di 2px sull'asse y, citato dal prof nel benchmark*/
+} */
 
 .img-categoria {
   height: 195px;

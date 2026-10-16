@@ -15,18 +15,18 @@ REGOLE
 */
 
 const prodotti = [
-   { nome: "Monitor", categoria: "Elettronica", prezzo: 150, rating: 4, immagine: "img/monitor.jpg", disponibile: true },
-   { nome: "Cuffie", categoria: "Elettronica", prezzo: 49, rating: 3, immagine: "img/cuffie.jpg", disponibile: true },
-   { nome: "Tastiera", categoria: "Elettronica", prezzo: 29, rating: 2, immagine: "img/tastiera.jpg", disponibile: false },
-   { nome: "fahrenheit 451", categoria: "Libri", prezzo: 21.90, rating: 5, immagine: "img/anelli.jpg", disponibile: true },
-   { nome: "1984", categoria: "Libri", prezzo: 15.90, rating: 5, immagine: "img/principe.jpg", disponibile: true },
-   { nome: "Superuomo", categoria: "Libri", prezzo: 15, rating: 4, immagine: "img/giacca.jpg", disponibile: true },
-   { nome: "The Witcher 3", categoria: "Giochi", prezzo: 5, rating: 5, immagine: "img/manuale.jpg", disponibile: true },
-   { nome: "Laccino", categoria: "Abbigliamento", prezzo: 2.90, rating: 2, immagine: "img/maglietta.jpg", disponibile: true },
-   { nome: "Scarpe", categoria: "Abbigliamento", prezzo: 64, rating: 5, immagine: "img/scarpe.jpg", disponibile: false },
-   { nome: "Lampada", categoria: "Casa", prezzo: 17, rating: 3, immagine: "img/lampada.jpg", disponibile: true },
-   { nome: "Divano", categoria: "Casa", prezzo: 220, rating: 1, immagine: "img/tostapane.jpg", disponibile: true },
-   { nome: "Letto", categoria: "Casa", prezzo: 179, rating: 4, immagine: "img/pentole.jpg", disponibile: false }
+   { nome: "Monitor", categoria: "Elettronica", prezzo: 150, rating: 4, immagine: "img/Monitor.jpg", disponibile: true },
+   { nome: "Cuffie", categoria: "Elettronica", prezzo: 49, rating: 3, immagine: "img/Cuffie.jpg", disponibile: true },
+   { nome: "Tastiera", categoria: "Elettronica", prezzo: 29, rating: 2, immagine: "img/Tastiera.jpg", disponibile: false },
+   { nome: "Fahrenheit 451", categoria: "Libri", prezzo: 21.90, rating: 5, immagine: "img/Fahrenheit.jpg", disponibile: true },
+   { nome: "1984", categoria: "Libri", prezzo: 15.90, rating: 5, immagine: "img/1984.jpg", disponibile: true },
+   { nome: "Superuomo", categoria: "Libri", prezzo: 15, rating: 4, immagine: "img/Superuomo.jpg", disponibile: true },
+   { nome: "The Witcher 3", categoria: "Giochi", prezzo: 5, rating: 5, immagine: "img/The Witcher3.jpg", disponibile: true },
+   { nome: "Laccino", categoria: "Abbigliamento", prezzo: 2.90, rating: 2, immagine: "img/Laccino.jpg", disponibile: true },
+   { nome: "Scarpe", categoria: "Abbigliamento", prezzo: 64, rating: 5, immagine: "img/Scarpe.jpg", disponibile: false },
+   { nome: "Lampada", categoria: "Casa", prezzo: 17, rating: 1, immagine: "img/Lampada.jpg", disponibile: true },
+   { nome: "Divano", categoria: "Casa", prezzo: 220, rating: 1, immagine: "img/Divano.jpg", disponibile: true },
+   { nome: "Letto", categoria: "Casa", prezzo: 179, rating: 4, immagine: "img/Letto.jpg", disponibile: false }
 ];
 
 console.table(prodotti);
@@ -100,7 +100,21 @@ console.table(filtraPerCategoria("Libri"));
    Funzione che genera un array filtrato dall'array prodotti, mostrando soltanto i prodotti disponibili con rating >= 3
 */
 
+function filtraDisponibiliAlti() {
+  const risultato = [];
 
+  for (let i = 0; i < prodotti.length; i++) {
+    if (prodotti[i].disponibile === true && prodotti[i].rating >= 3) {
+      risultato.push(prodotti[i]);
+    }
+  }
+
+  return risultato;
+}
+
+// test
+console.log("Prodotti disponibili con rating >= 3:");
+console.table(filtraDisponibiliAlti());
 
 /* --------------------------------------------------------------
 
