@@ -18,15 +18,15 @@ const prodotti = [
    { nome: "Monitor", categoria: "Elettronica", prezzo: 150, rating: 4, immagine: "img/monitor.jpg", disponibile: true },
    { nome: "Cuffie", categoria: "Elettronica", prezzo: 49, rating: 3, immagine: "img/cuffie.jpg", disponibile: true },
    { nome: "Tastiera", categoria: "Elettronica", prezzo: 29, rating: 2, immagine: "img/tastiera.jpg", disponibile: false },
-   { nome: "Il Signore degli Anelli", categoria: "Libri", prezzo: 24, rating: 5, immagine: "img/anelli.jpg", disponibile: true },
-   { nome: "Il Piccolo Principe", categoria: "Libri", prezzo: 8, rating: 4, immagine: "img/principe.jpg", disponibile: true },
-   { nome: "Manuale di JavaScript", categoria: "Libri", prezzo: 35, rating: 3, immagine: "img/manuale.jpg", disponibile: false },
-   { nome: "Giacca", categoria: "Abbigliamento", prezzo: 89, rating: 4, immagine: "img/giacca.jpg", disponibile: true },
-   { nome: "Maglietta", categoria: "Abbigliamento", prezzo: 12, rating: 2, immagine: "img/maglietta.jpg", disponibile: true },
+   { nome: "fahrenheit 451", categoria: "Libri", prezzo: 21.90, rating: 5, immagine: "img/anelli.jpg", disponibile: true },
+   { nome: "1984", categoria: "Libri", prezzo: 15.90, rating: 5, immagine: "img/principe.jpg", disponibile: true },
+   { nome: "Superuomo", categoria: "Libri", prezzo: 15, rating: 4, immagine: "img/giacca.jpg", disponibile: true },
+   { nome: "The Witcher 3", categoria: "Giochi", prezzo: 5, rating: 5, immagine: "img/manuale.jpg", disponibile: true },
+   { nome: "Laccino", categoria: "Abbigliamento", prezzo: 2.90, rating: 2, immagine: "img/maglietta.jpg", disponibile: true },
    { nome: "Scarpe", categoria: "Abbigliamento", prezzo: 64, rating: 5, immagine: "img/scarpe.jpg", disponibile: false },
-   { nome: "Lampada", categoria: "Casa", prezzo: 19, rating: 3, immagine: "img/lampada.jpg", disponibile: true },
-   { nome: "Tostapane", categoria: "Casa", prezzo: 27, rating: 1, immagine: "img/tostapane.jpg", disponibile: true },
-   { nome: "Set di pentole", categoria: "Casa", prezzo: 79, rating: 4, immagine: "img/pentole.jpg", disponibile: false }
+   { nome: "Lampada", categoria: "Casa", prezzo: 17, rating: 3, immagine: "img/lampada.jpg", disponibile: true },
+   { nome: "Divano", categoria: "Casa", prezzo: 220, rating: 1, immagine: "img/tostapane.jpg", disponibile: true },
+   { nome: "Letto", categoria: "Casa", prezzo: 179, rating: 4, immagine: "img/pentole.jpg", disponibile: false }
 ];
 
 console.table(prodotti);
@@ -49,8 +49,8 @@ function formattaPrezzo(prezzo) {
 }
 
 console.log(`${prodotti[0].nome}: ${formattaPrezzo(prodotti[0].prezzo)}`);
-console.log(`${prodotti[1].nome}: ${formattaPrezzo(prodotti[1].prezzo)}`);
-console.log(`${prodotti[4].nome}: ${formattaPrezzo(prodotti[4].prezzo)}`);
+console.log(`${prodotti[3].nome}: ${formattaPrezzo(prodotti[1].prezzo)}`);
+console.log(`${prodotti[7].nome}: ${formattaPrezzo(prodotti[4].prezzo)}`);
 
 /* VERSIONE INTERMEDIA — stelline(rating)
    Funzione che ritorna una stringa di stelline piene/vuote.
@@ -58,13 +58,43 @@ console.log(`${prodotti[4].nome}: ${formattaPrezzo(prodotti[4].prezzo)}`);
    Esempio in console.log: Monitor: rating 3 → "★★★☆☆"
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function stelline(rating) {
+  let risultato = "";
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= rating) {
+      risultato = risultato + "★";
+    } else {
+      risultato = risultato + "☆";
+    }
+  }
+
+  return risultato;
+}
+
+console.log(`${prodotti[0].nome}: rating ${prodotti[1].rating} → "${stelline(prodotti[0].rating)}"`);
+console.log(`${prodotti[3].nome}: rating ${prodotti[8].rating} → "${stelline(prodotti[8].rating)}"`);
 
 /* VERSIONE INTERMEDIA — Filtro per categoria
    Funzione che riceve il parametro categoria e filtra l'array prodotti mostrando solo i prodotti della categoria ricevuta
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function filtraPerCategoria(categoria) {
+  const risultato = [];
+
+  for (let i = 0; i < prodotti.length; i++) {
+    if (prodotti[i].categoria === categoria) {
+      risultato.push(prodotti[i]);
+    }
+  }
+
+  return risultato;
+}
+
+// test
+console.log("Prodotti della categoria Libri:");
+console.table(filtraPerCategoria("Libri"));
+
 
 /* VERSIONE INTERMEDIA — Filtro disponibilità e rating
    Funzione che genera un array filtrato dall'array prodotti, mostrando soltanto i prodotti disponibili con rating >= 3
